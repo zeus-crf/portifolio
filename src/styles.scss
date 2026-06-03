@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design Tokens - Variáveis CSS */
+:root {
+  --color-primary: #0ea5e9;
+  --color-secondary: #8b5cf6;
+  --color-accent: #ec4899;
+  --spacing-unit: 4px;
+  --transition-smooth: 0.3s ease-in-out;
+}
+
+/* Reset + Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  @apply bg-white dark:bg-dark-900 text-slate-900 dark:text-slate-50 transition-colors duration-300;
+}
+
+/* Classes Reutilizáveis com @apply */
+.btn-primary {
+  @apply px-4 py-2 bg-primary-500 text-white rounded-lg 
+         hover:bg-primary-600 active:scale-95
+         transition-all duration-300 font-medium;
+}
+
+.btn-secondary {
+  @apply px-4 py-2 bg-secondary-500 text-white rounded-lg
+         hover:bg-secondary-600 active:scale-95
+         transition-all duration-300 font-medium;
+}
+
+.card-base {
+  @apply bg-white dark:bg-slate-800 rounded-xl
+         shadow-lg dark:shadow-slate-900/50 p-6
+         transition-all duration-300;
+}
+
+.text-gradient {
+  @apply bg-gradient-to-r from-primary-500 to-accent
+         bg-clip-text text-transparent;
+}
