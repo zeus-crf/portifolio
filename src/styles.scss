@@ -34,7 +34,7 @@ body {
 
 .btn-secondary {
   @apply px-4 py-2 bg-secondary-500 text-white rounded-lg
-         hover:bg-secondary-600 active:scale-95
+         hover:opacity-80 active:scale-95
          transition-all duration-300 font-medium;
 }
 
