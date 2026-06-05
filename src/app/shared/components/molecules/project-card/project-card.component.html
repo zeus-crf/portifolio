@@ -1,0 +1,50 @@
+<app-card [hoverable]="true" padding="lg">
+  <!-- Imagem do projeto -->
+  <div class="project-image mb-4 h-48 bg-slate-200 dark:bg-slate-700 rounded-lg overflow-hidden">
+    <img 
+      *ngIf="project.image"
+      [src]="project.image" 
+      [alt]="project.title"
+      class="w-full h-full object-cover"
+    />
+    <div *ngIf="!project.image" class="w-full h-full flex items-center justify-center">
+      <span class="text-slate-400">Sem imagem</span>
+    </div>
+  </div>
+
+  <!-- Conteúdo -->
+  <div>
+    <!-- Título -->
+    <h3 class="text-xl font-bold mb-2">{{ project.title }}</h3>
+
+    <!-- Descrição -->
+    <p class="text-slate-600 dark:text-slate-300 mb-4">
+      {{ project.description }}
+    </p>
+
+    <!-- Tags -->
+    <div class="flex flex-wrap gap-2 mb-4">
+      <app-badge 
+        *ngFor="let tag of project.tags"
+        [label]="tag"
+        variant="primary"
+      ></app-badge>
+    </div>
+
+    <!-- Botões -->
+    <div *ngIf="hasLinks" class="flex gap-3">
+      <app-button 
+        *ngIf="project.liveUrl"
+        label="Ver Live"
+        variant="primary"
+        size="sm"
+      ></app-button>
+      <app-button 
+        *ngIf="project.githubUrl"
+        label="GitHub"
+        variant="outline"
+        size="sm"
+      ></app-button>
+    </div>
+  </div>
+</app-card>
