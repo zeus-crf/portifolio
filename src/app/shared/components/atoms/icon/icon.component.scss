@@ -1,0 +1,33 @@
+.app-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    fill: currentColor;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}
+
+.app-icon--sm {
+  width: 16px;
+  height: 16px;
+}
+
+.app-icon--md {
+  width: 24px;
+  height: 24px;
+}
+
+.app-icon--lg {
+  width: 32px;
+  height: 32px;
+}
+
+.app-icon--xl {
+  width: 48px;
+  height: 48px;
+}

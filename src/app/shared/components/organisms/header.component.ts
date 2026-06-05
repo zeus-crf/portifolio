@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ButtonComponent } from '../atoms/button/button.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ButtonComponent],
   template: `
     <header class="sticky top-0 z-50 bg-white dark:bg-slate-800 shadow-md">
       <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -21,8 +22,20 @@ import { RouterModule } from '@angular/router';
           <li><a routerLink="/projects" routerLinkActive="text-primary-500" class="hover:text-primary-500 transition-colors">Projetos</a></li>
           <li><a routerLink="/contact" routerLinkActive="text-primary-500" class="hover:text-primary-500 transition-colors">Contato</a></li>
         </ul>
+
+        <!-- Button de teste -->
+        <app-button 
+          label="Demo" 
+          variant="primary" 
+          size="md"
+          (clicked)="onDemoClick()"
+        ></app-button>
       </nav>
     </header>
   `,
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  onDemoClick() {
+    alert('Botão clicado!');
+  }
+}
