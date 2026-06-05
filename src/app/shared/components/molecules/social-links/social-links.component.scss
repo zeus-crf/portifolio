@@ -1,0 +1,9 @@
+.social-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+
+  app-link {
+    margin: 0;
+  }
+}
