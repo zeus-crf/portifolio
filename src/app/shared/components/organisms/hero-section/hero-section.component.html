@@ -1,0 +1,62 @@
+<section 
+  class="hero-section relative min-h-screen flex items-center justify-center overflow-hidden"
+  [style.backgroundImage]="heroData.backgroundImage ? 'url(' + heroData.backgroundImage + ')' : 'none'"
+>
+  <!-- Overlay escuro para melhor legibilidade -->
+  <div class="absolute inset-0 bg-gradient-to-r from-dark-900/80 to-dark-900/40"></div>
+
+  <!-- Conteúdo -->
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    
+    <!-- Subtitle pequeno (com animação) -->
+    <p 
+      class="hero-subtitle text-primary-500 font-semibold uppercase tracking-widest mb-4 sm:mb-6"
+      [style.animationDelay]="getAnimationDelay(0)"
+    >
+      {{ heroData.subtitle }}
+    </p>
+
+    <!-- Título grande (com animação) -->
+    <h1 
+      class="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 sm:mb-8 leading-tight"
+      [style.animationDelay]="getAnimationDelay(1)"
+    >
+      {{ heroData.title }}
+    </h1>
+
+    <!-- Descrição (com animação) -->
+    <p 
+      class="hero-description text-lg sm:text-xl text-slate-200 mb-8 sm:mb-12 max-w-2xl mx-auto"
+      [style.animationDelay]="getAnimationDelay(2)"
+    >
+      {{ heroData.description }}
+    </p>
+
+    <!-- Botões CTA (com animação) -->
+    <div 
+      class="hero-cta flex flex-col sm:flex-row gap-4 justify-center items-center"
+      [style.animationDelay]="getAnimationDelay(3)"
+    >
+      <app-button 
+        [label]="heroData.ctaText"
+        variant="primary"
+        size="lg"
+        (clicked)="onCtaClick()"
+      ></app-button>
+
+      <app-button 
+        *ngIf="heroData.showSecondaryButton"
+        [label]="heroData.secondaryCtaText || 'Saiba Mais'"
+        variant="outline"
+        size="lg"
+      ></app-button>
+    </div>
+
+    <!-- Scroll indicator (opcional) -->
+    <div class="hero-scroll absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </div>
+  </div>
+</section>
