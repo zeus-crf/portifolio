@@ -1,0 +1,127 @@
+<section class="py-24 md:py-32">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Section Title + Filters -->
+    <div class="mb-16">
+      <p class="section-title-small">Projetos</p>
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+        <h2 class="section-title-large">Projetos em Destaque</h2>
+        
+        <!-- Filter Buttons -->
+        <div class="flex gap-3 flex-wrap">
+          <button *ngFor="let filter of filterOptions"
+                  (click)="setFilter(filter)"
+                  [ngClass]="{
+                    'btn-primary-custom': selectedFilter === filter,
+                    'btn-outline-custom': selectedFilter !== filter
+                  }"
+                  class="text-sm md:text-base">
+            {{ getFilterLabel(filter) }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects Grid: 1 grande + 2 pequenos -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      <!-- Projeto Grande (Featured) -->
+      <div *ngIf="filteredProjects[0]" 
+           class="lg:col-span-1 lg:row-span-2">
+        <div class="project-card project-card--large h-full">
+          <!-- Number -->
+          <div class="absolute top-6 right-6 text-6xl font-bold text-primary-500/20">
+            {{ filteredProjects[0].number }}
+          </div>
+
+          <!-- Image (se existir) -->
+          <div *ngIf="filteredProjects[0].image" 
+               class="mb-6 h-48 rounded-lg overflow-hidden bg-dark-card">
+            <img [src]="filteredProjects[0].image" 
+                 [alt]="filteredProjects[0].title"
+                 class="w-full h-full object-cover">
+          </div>
+
+          <!-- Content -->
+          <div class="space-y-4">
+            <h3 class="text-2xl font-bold text-white">
+              {{ filteredProjects[0].title }}
+            </h3>
+            <p class="text-slate-300">
+              {{ filteredProjects[0].description }}
+            </p>
+
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-2">
+              <span *ngFor="let tag of filteredProjects[0].tags"
+                    class="px-3 py-1 bg-primary-500/20 text-primary-400 rounded text-xs font-semibold">
+                {{ tag }}
+              </span>
+            </div>
+
+            <!-- Links -->
+            <div class="flex gap-3 pt-4">
+              <a *ngIf="filteredProjects[0].demoUrl"
+                 [href]="filteredProjects[0].demoUrl"
+                 target="_blank"
+                 class="text-primary-500 hover:text-primary-400 text-sm font-semibold flex items-center gap-1">
+                Demo <span>↗</span>
+              </a>
+              <a *ngIf="filteredProjects[0].githubUrl"
+                 [href]="filteredProjects[0].githubUrl"
+                 target="_blank"
+                 class="text-primary-500 hover:text-primary-400 text-sm font-semibold flex items-center gap-1">
+                GitHub <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projetos Pequenos -->
+      <div *ngFor="let project of filteredProjects.slice(1, 3)"
+           class="project-card project-card--small">
+        <!-- Number -->
+        <div class="absolute top-4 right-4 text-4xl font-bold text-primary-500/20">
+          {{ project.number }}
+        </div>
+
+        <!-- Content -->
+        <div class="space-y-3">
+          <h3 class="text-lg font-bold text-white pr-12">
+            {{ project.title }}
+          </h3>
+          <p class="text-sm text-slate-400">
+            {{ project.description }}
+          </p>
+
+          <!-- Tags -->
+          <div class="flex flex-wrap gap-2">
+            <span *ngFor="let tag of project.tags"
+                  class="px-2 py-1 bg-primary-500/20 text-primary-400 rounded text-xs font-semibold">
+              {{ tag }}
+            </span>
+          </div>
+
+          <!-- Links -->
+          <div class="flex gap-3 pt-2">
+            <a *ngIf="project.demoUrl"
+               [href]="project.demoUrl"
+               target="_blank"
+               class="text-primary-500 hover:text-primary-400 text-xs font-semibold">
+              Demo ↗
+            </a>
+            <a *ngIf="project.githubUrl"
+               [href]="project.githubUrl"
+               target="_blank"
+               class="text-primary-500 hover:text-primary-400 text-xs font-semibold">
+              GitHub ↗
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

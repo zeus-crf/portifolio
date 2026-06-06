@@ -15,11 +15,20 @@ export const routes: Routes = [
         data: { title: 'Sobre' }
     },
 
-    {path: 'projects', loadComponent: () => import('./features/projects/projects.component')
+
+    {
+        path: 'projetos',
+        loadComponent: () => import('./features/projects/projects.component')
         .then(m => m.ProjectsComponent),
-        data: {title: 'Projetos - Portifólio'}
+        data: { title: 'Projetos' }
     },
 
+    {
+    path: 'ferramentas',
+    loadComponent: () => import('./shared/components/organisms/stack-section/stack.component')
+        .then(m => m.StackComponent),
+    data: { title: 'Ferramentas' }
+    },
     {path: 'contact', loadComponent: () => import('./features/contact/contact.component')
         .then(m => m.ContactComponent),
         data: {title: 'Contato - Portifólio'}

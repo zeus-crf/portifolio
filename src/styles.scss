@@ -555,7 +555,11 @@ body::before {
   50%     { transform: translate(4%, 5%) scale(1.08) rotate(12deg); }
 }
 
-.pf-section:not(.pf-hero) { overflow: hidden; }
+.pf-section:not(.pf-hero) {
+  overflow: hidden;
+  border-top: 1px solid transparent;
+  border-image: linear-gradient(90deg, transparent, rgba(59,130,246,0.35), transparent) 1;
+}
 
 .pf-section:not(.pf-hero)::before {
   content: '';
@@ -663,4 +667,315 @@ body::before {
 @media (max-width: 980px) {
   .pf-about { grid-template-columns: 1fr; }
   .pf-about-left { position: static; }
+}
+
+/* ============================================================
+   SECTION TOP ROW — header + filter tabs lado a lado
+   ============================================================ */
+.pf-sec-toprow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   FILTER TABS
+   ============================================================ */
+.pf-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.pf-tab {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--sub);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 7px 18px;
+  cursor: pointer;
+  transition: all var(--dur) var(--ease-out);
+}
+.pf-tab:hover { color: var(--text); border-color: var(--bord2); }
+.pf-tab.active { color: #fff; background: var(--b700); border-color: var(--b700); }
+
+/* ============================================================
+   PROJECTS GRID
+   ============================================================ */
+.pf-proj-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.pf-proj-feat-col { height: 100%; }
+
+/* ---- Featured card ---- */
+.pf-feat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all var(--dur) var(--ease-out);
+  height: 100%;
+}
+.pf-feat-card:hover {
+  border-color: var(--bord2);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Browser chrome bar */
+.pf-chrome {
+  background: #0a1120;
+  border-bottom: 1px solid var(--border);
+  padding: 11px 14px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.pf-chrome-url {
+  margin-left: 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--dim);
+  background: var(--bg);
+  border-radius: 6px;
+  padding: 4px 12px;
+}
+
+/* Featured preview area */
+.pf-feat-preview {
+  position: relative;
+  height: 200px;
+  background: radial-gradient(ellipse at 50% 0%, #112243, var(--card));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.pf-feat-glow {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.pf-feat-mark {
+  font-family: var(--font-mono);
+  font-size: 56px;
+  font-weight: 600;
+  color: var(--b500);
+  opacity: 0.5;
+  position: relative;
+  z-index: 1;
+}
+
+/* Featured body */
+.pf-feat-body { padding: 22px 24px; }
+.pf-proj-cat {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--b400);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.pf-h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text);
+}
+.pf-proj-stack {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.pf-feat-foot { margin-top: 18px; }
+
+/* ---- Project links ---- */
+.pf-proj-links { display: flex; gap: 16px; }
+.pf-proj-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--b400);
+  font-family: var(--font-mono);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color var(--dur) var(--ease-out);
+}
+.pf-proj-link:hover { color: var(--b300); }
+
+/* ---- Mini cards list ---- */
+.pf-proj-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.pf-proj-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  transition: all var(--dur) var(--ease-out);
+  flex: 1;
+  cursor: default;
+}
+.pf-proj-card:hover {
+  border-color: var(--bord2);
+  box-shadow: var(--shadow-hover);
+}
+.pf-proj-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.pf-proj-num {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--muted);
+}
+.pf-mini-desc {
+  font-size: 14px;
+  color: var(--sub);
+  margin: 8px 0 0;
+  line-height: 1.5;
+}
+
+/* ---- Empty state ---- */
+.pf-empty {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  padding: 24px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+}
+
+/* ---- Projects responsive ---- */
+@media (max-width: 980px) {
+  .pf-proj-grid { grid-template-columns: 1fr; }
+  .pf-sec-toprow { align-items: flex-start; flex-direction: column; }
+}
+
+/* ============================================================
+   TOOLS / STACK
+   ============================================================ */
+/* Grid de grupos — 2 colunas, grupos não esticam entre si */
+.pf-tool-groups {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+/* Card de cada categoria */
+.pf-tool-group {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 18px 20px;
+  transition: all var(--dur) var(--ease-out);
+}
+.pf-tool-group:hover {
+  border-color: var(--bord2);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Header da categoria */
+.pf-tool-cat-header {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.pf-tool-cat-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(59, 130, 246, 0.12);
+  color: var(--b400);
+  flex-shrink: 0;
+}
+.pf-tool-cat {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text);
+}
+
+/* Grid interno: 4 colunas fixas por grupo */
+.pf-tool-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+/* Card de ferramenta */
+.pf-tool {
+  background: #0a1220;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 8px 12px;
+  opacity: 0.82;
+  transition: all 0.25s var(--ease-out);
+  cursor: default;
+}
+.pf-tool:hover {
+  opacity: 1;
+  transform: scale(1.06);
+  border-color: var(--bord2);
+  box-shadow: 0 0 18px rgba(59, 130, 246, 0.18);
+}
+.pf-tool img {
+  width: 36px;
+  height: 36px;
+  display: block;
+  flex-shrink: 0;
+}
+.pf-tool span {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--sub);
+  text-align: center;
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+/* ---- Tools responsive ---- */
+@media (max-width: 980px) {
+  .pf-tool-groups {
+    grid-template-columns: 1fr;
+  }
+  .pf-tool-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .pf-tool-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .pf-tool {
+    height: 96px;
+  }
 }
