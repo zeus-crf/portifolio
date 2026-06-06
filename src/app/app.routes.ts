@@ -29,7 +29,13 @@ export const routes: Routes = [
         .then(m => m.StackComponent),
     data: { title: 'Ferramentas' }
     },
-    {path: 'contact', loadComponent: () => import('./features/contact/contact.component')
+    {
+    path: 'experiencia',
+    loadComponent: () => import('./shared/components/organisms/experience-section/experience.component')
+        .then(m => m.ExperienceComponent),
+    data: { title: 'Experiência' }
+    },
+    {path: 'contato', loadComponent: () => import('./features/contact/contact.component')
         .then(m => m.ContactComponent),
         data: {title: 'Contato - Portifólio'}
     },

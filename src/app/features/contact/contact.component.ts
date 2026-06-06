@@ -1,13 +1,31 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  template: `
-    <section class="max-w-6xl mx-auto px-4 py-24">
-      <h1 class="text-4xl font-bold">Contato</h1>
-      <p class="text-slate-600 dark:text-slate-300 mt-4">Página de Contato</p>
-    </section>
-  `,
+  imports: [CommonModule, FormsModule, RouterModule],
+  templateUrl: './contact.component.html',
+  styleUrl: './contact.component.scss',
 })
-export class ContactComponent {}
+export class ContactComponent {
+  sent = false;
+
+  form = {
+    nome: '',
+    email: '',
+    assunto: '',
+    mensagem: '',
+  };
+
+  onSubmit(event: Event) {
+    event.preventDefault();
+    this.sent = true;
+    setTimeout(() => {
+      this.sent = false;
+      this.form = { nome: '', email: '', assunto: '', mensagem: '' };
+    }, 3000);
+  }
+}
