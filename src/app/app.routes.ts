@@ -8,10 +8,11 @@ export const routes: Routes = [
         .then(m => m.HomeComponent),
         data: {title: 'Home - Portifólio'}
     },
-
-    {path: 'about', loadComponent: () => import('./features/about/about.component')
+    {
+        path: 'sobre',
+        loadComponent: () => import('./features/about/about.component')
         .then(m => m.AboutComponent),
-        data: {title: 'Sobre - Portifólio'}
+        data: { title: 'Sobre' }
     },
 
     {path: 'projects', loadComponent: () => import('./features/projects/projects.component')

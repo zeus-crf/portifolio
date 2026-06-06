@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './shared/components/organisms/header/header.component';
 import { FooterComponent } from './shared/components/organisms/footer/footer.component';
-
 @Component({
   selector: 'app-root',
   standalone: true,
