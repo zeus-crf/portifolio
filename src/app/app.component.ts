@@ -1,22 +1,34 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './shared/components/organisms/header.component';
-import { FooterComponent } from './shared/components/organisms/footer.component';
-
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { HeaderComponent } from './shared/components/organisms/header/header.component';
+import { FooterComponent } from './shared/components/organisms/footer/footer.component';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [
-    RouterOutlet,
-    RouterOutlet,
+    CommonModule,
+    RouterModule,
     HeaderComponent,
     FooterComponent,
   ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  template: `
+    <div class="flex flex-col min-h-screen bg-dark-900">
+      <!-- Header Fixo -->
+      <app-header></app-header>
+
+      <!-- Conteúdo Principal -->
+      <main class="flex-1">
+        <router-outlet></router-outlet>
+      </main>
+
+      <!-- Footer -->
+      <app-footer></app-footer>
+    </div>
+  `,
+  styles: [],
 })
 export class AppComponent {
-  protected readonly title = signal('portifolio');
-
-  
+  title = 'portfolio';
 }
