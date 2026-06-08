@@ -1,0 +1,33 @@
+:host {
+  display: block;
+}
+
+.project-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  position: relative;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: var(--b500);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
+  }
+
+  &--large {
+    padding: 32px;
+  }
+
+  &--small {
+    padding: 20px;
+  }
+}
+
+a {
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--b400) !important;
+  }
+}

@@ -8,18 +8,34 @@ export const routes: Routes = [
         .then(m => m.HomeComponent),
         data: {title: 'Home - Portifólio'}
     },
-
-    {path: 'about', loadComponent: () => import('./features/about/about.component')
+    {
+        path: 'sobre',
+        loadComponent: () => import('./features/about/about.component')
         .then(m => m.AboutComponent),
-        data: {title: 'Sobre - Portifólio'}
+        data: { title: 'Sobre' }
     },
 
-    {path: 'projects', loadComponent: () => import('./features/projects/projects.component')
+
+    {
+        path: 'projetos',
+        loadComponent: () => import('./features/projects/projects.component')
         .then(m => m.ProjectsComponent),
-        data: {title: 'Projetos - Portifólio'}
+        data: { title: 'Projetos' }
     },
 
-    {path: 'contact', loadComponent: () => import('./features/contact/contact.component')
+    {
+    path: 'ferramentas',
+    loadComponent: () => import('./shared/components/organisms/stack-section/stack.component')
+        .then(m => m.StackComponent),
+    data: { title: 'Ferramentas' }
+    },
+    {
+    path: 'experiencia',
+    loadComponent: () => import('./shared/components/organisms/experience-section/experience.component')
+        .then(m => m.ExperienceComponent),
+    data: { title: 'Experiência' }
+    },
+    {path: 'contato', loadComponent: () => import('./features/contact/contact.component')
         .then(m => m.ContactComponent),
         data: {title: 'Contato - Portifólio'}
     },

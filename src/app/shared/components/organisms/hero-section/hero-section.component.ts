@@ -98,6 +98,9 @@ export class HeroSectionComponent implements OnInit, OnDestroy {
   }
 
   onDownloadCV() {
-    console.log('Download CV');
+    const link = document.createElement('a');
+    link.href = '/assets/CURRICULO_JR.pdf';
+    link.download = 'Miguel_Pereira_CV.pdf';
+    link.click();
   }
 }

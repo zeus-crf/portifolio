@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './shared/components/organisms/header/header.component';
-import { FooterComponent } from './shared/components/organisms/footer/footer.component';
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -11,20 +9,13 @@ import { FooterComponent } from './shared/components/organisms/footer/footer.com
     CommonModule,
     RouterModule,
     HeaderComponent,
-    FooterComponent,
   ],
   template: `
-    <div class="flex flex-col min-h-screen bg-dark-900">
-      <!-- Header Fixo -->
+    <div style="background:var(--bg);min-height:100vh;">
       <app-header></app-header>
-
-      <!-- Conteúdo Principal -->
-      <main class="flex-1">
+      <main>
         <router-outlet></router-outlet>
       </main>
-
-      <!-- Footer -->
-      <app-footer></app-footer>
     </div>
   `,
   styles: [],

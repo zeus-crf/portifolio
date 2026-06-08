@@ -1,0 +1,74 @@
+<section id="experiencia" class="pf-section">
+  <div class="pf-container" style="position:relative;z-index:1;">
+
+    <!-- Cabeçalho -->
+    <div class="pf-sechead">
+      <span class="pf-eyebrow">// EXPERIÊNCIA</span>
+      <h2 class="pf-h2">Trajetória</h2>
+    </div>
+
+    <!-- Timeline alternada -->
+    <div class="pf-xp-alt">
+
+      <!-- Linha vertical central -->
+      <div class="pf-xp-vline"></div>
+
+      <div *ngFor="let e of entries; let i = index" class="pf-xp-entry">
+
+        <!-- Coluna esquerda: apenas índices pares (desktop) -->
+        <div class="pf-xp-left-col">
+          <ng-container *ngIf="i % 2 === 0">
+            <ng-container *ngTemplateOutlet="xpCard; context:{ e: e, side: 'left' }"></ng-container>
+          </ng-container>
+        </div>
+
+        <!-- Dot central -->
+        <div class="pf-xp-center-col">
+          <div class="pf-xp-dot-center"></div>
+        </div>
+
+        <!-- Coluna direita: ímpares sempre; pares só em mobile -->
+        <div class="pf-xp-right-col">
+          <ng-container *ngIf="i % 2 !== 0">
+            <ng-container *ngTemplateOutlet="xpCard; context:{ e: e, side: 'right' }"></ng-container>
+          </ng-container>
+          <!-- Fallback mobile para os cards pares (coluna esquerda some) -->
+          <div *ngIf="i % 2 === 0" class="pf-xp-mob-fallback">
+            <ng-container *ngTemplateOutlet="xpCard; context:{ e: e, side: 'right' }"></ng-container>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Template único do card — sem duplicação de código -->
+<ng-template #xpCard let-e="e" let-side="side">
+  <div class="pf-xp-card"
+       [class.pf-xp-card-left]="side === 'left'"
+       [class.pf-xp-card-right]="side === 'right'">
+
+    <span class="pf-proj-cat">{{ e.period }}</span>
+    <h3 class="pf-h3" style="margin-top:8px;">{{ e.role }}</h3>
+    <span class="pf-xp-at">{{ e.company }}</span>
+
+    <ul class="pf-xp-points">
+      <li *ngFor="let pt of e.points">
+        <span class="pf-bullet">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </span>
+        {{ pt }}
+      </li>
+    </ul>
+
+    <div class="pf-proj-stack">
+      <span *ngFor="let s of e.stack" class="pf-chip">{{ s }}</span>
+    </div>
+  </div>
+</ng-template>
