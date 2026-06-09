@@ -35,6 +35,12 @@ export const routes: Routes = [
         .then(m => m.ExperienceComponent),
     data: { title: 'Experiência' }
     },
+    {
+    path: 'formacao',
+    loadComponent: () => import('./shared/components/organisms/education-section/education.component')
+        .then(m => m.EducationComponent),
+    data: { title: 'Formação' }
+    },
     {path: 'contato', loadComponent: () => import('./features/contact/contact.component')
         .then(m => m.ContactComponent),
         data: {title: 'Contato - Portifólio'}

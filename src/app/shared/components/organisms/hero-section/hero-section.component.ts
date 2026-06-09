@@ -11,10 +11,13 @@ declare let tsParticles: any;
   styleUrl: './hero-section.component.scss',
 })
 export class HeroSectionComponent implements OnInit, OnDestroy {
+
+  scrolled = false;
+
   userPhoto = '/assets/foto-perfil.jpeg';
   userName = 'Miguel Pereira';
   subtitle = 'Full-Stack Developer';
-  description = `Desenvolvedor full-stack focado em construir produtos sólidos e escaláveis com Java, Spring Boot e Angular — do banco de dados à interface.`;
+  description = `Desenvolvedor full-stack focado em construir produtos sólidos e escaláveis com Java, Spring Boot e Angular, do banco de dados à interface.`;
 
   stats = [
     { number: '3+', label: 'Anos' },
@@ -93,8 +96,15 @@ export class HeroSectionComponent implements OnInit, OnDestroy {
     tryLoad();
   }
 
-  onViewProjects() {
-    console.log('Navigate to projects');
+  scrollTo(sectionId: string) {
+    this.smoothScroll(sectionId);
+  }
+
+  private smoothScroll(sectionId: string) {
+    const el = document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
   onDownloadCV() {

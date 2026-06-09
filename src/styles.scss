@@ -1299,3 +1299,188 @@ body::before {
   .pf-form-row   { grid-template-columns: 1fr; }
   .pf-footer     { padding: 24px 32px 32px; flex-direction: column; align-items: flex-start; gap: 12px; }
 }
+
+/* ============================================================
+   EDUCATION — formação + certificações
+   ============================================================ */
+
+/* Graus: 2 colunas, cards altos */
+.pf-edu-degrees {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.pf-degree {
+  display: flex;
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all var(--dur) var(--ease-out);
+  min-height: 180px;
+}
+.pf-degree:hover {
+  border-color: var(--bord2);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Barra lateral colorida */
+.pf-degree-bar {
+  width: 4px;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, var(--b500), var(--b700));
+}
+
+.pf-degree-body {
+  padding: 24px 24px 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.pf-degree-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.pf-degree-ic-wrap {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(59, 130, 246, 0.12);
+  color: var(--b400);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.pf-degree-title {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--text);
+  margin: 0 0 8px;
+  line-height: 1.3;
+}
+.pf-degree-inst {
+  display: block;
+  font-size: 14px;
+  color: var(--sub);
+  margin-bottom: 8px;
+}
+.pf-degree-period {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: auto;
+}
+
+/* Badges de status */
+.pf-status {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.pf-status.done { color: var(--green); border-color: var(--green); background: rgba(34, 197, 94, 0.08); }
+.pf-status.wip  { color: var(--b300);  border-color: var(--bord2); background: rgba(59, 130, 246, 0.08); }
+
+/* Label de certificações */
+.pf-cert-label { margin: 40px 0 16px; }
+
+/* Grid de certificados — auto-fill para nomes longos */
+.pf-cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.pf-cert {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: all var(--dur) var(--ease-out);
+}
+.pf-cert:hover {
+  border-color: var(--bord2);
+  box-shadow: var(--shadow-hover);
+}
+/* Card Em andamento: borda azul sutil */
+.pf-cert.pf-cert-wip {
+  border-color: var(--bord2);
+  background: linear-gradient(135deg, var(--card), rgba(29, 78, 216, 0.06));
+}
+
+.pf-cert-ic-wrap {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(59, 130, 246, 0.10);
+  color: var(--b400);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pf-cert-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
+}
+.pf-cert-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: auto;
+}
+
+/* Barra de progresso (Em andamento) */
+.pf-cert-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+.pf-cert-progress-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(59, 130, 246, 0.15);
+  border-radius: 999px;
+  position: relative;
+  overflow: hidden;
+}
+.pf-cert-progress-bar::after {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, var(--b500), var(--green));
+  border-radius: 999px;
+}
+.pf-cert-progress-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--b300);
+  flex-shrink: 0;
+}
+
+/* ---- Education responsive ---- */
+@media (max-width: 980px) {
+  .pf-edu-degrees { grid-template-columns: 1fr; }
+  .pf-cert-grid   { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+}
+@media (max-width: 640px) {
+  .pf-cert-grid   { grid-template-columns: repeat(2, 1fr); }
+}
