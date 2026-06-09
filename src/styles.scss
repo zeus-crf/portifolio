@@ -666,8 +666,10 @@ body::before {
 
 /* ---- About responsive ---- */
 @media (max-width: 980px) {
-  .pf-about { grid-template-columns: 1fr; }
+  .pf-about { grid-template-columns: minmax(0, 1fr); }
   .pf-about-left { position: static; }
+  .pf-about-right { min-width: 0; }
+  .pf-codeblock { overflow: hidden; }
 }
 
 /* ============================================================
@@ -1174,6 +1176,7 @@ body::before {
 }
 .pf-field input,
 .pf-field textarea {
+  min-width: 0;
   background: var(--card);
   border: 1px solid var(--bord2);
   border-radius: 8px;
@@ -1314,9 +1317,18 @@ body::before {
 
 /* ---- Contact + Footer responsive ---- */
 @media (max-width: 980px) {
-  .pf-contact    { grid-template-columns: 1fr; }
-  .pf-form-row   { grid-template-columns: 1fr; }
-  .pf-footer     { padding: 24px 32px 32px; flex-direction: column; align-items: flex-start; gap: 12px; }
+  .pf-contact      { grid-template-columns: minmax(0, 1fr); }
+  .pf-form         { min-width: 0; }
+  .pf-contact-side { min-width: 0; }
+  .pf-form-row     { grid-template-columns: minmax(0, 1fr); }
+  .pf-field        { min-width: 0; }
+  .pf-footer       { padding: 24px 32px 32px; flex-direction: column; align-items: flex-start; gap: 12px; }
+}
+
+@media (max-width: 480px) {
+  .pf-container { padding-left: 20px; padding-right: 20px; }
+  .pf-nav-inner { padding-left: 20px; padding-right: 20px; }
+  .pf-footer    { padding-left: 20px; padding-right: 20px; }
 }
 
 /* ============================================================
