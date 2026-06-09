@@ -2,7 +2,7 @@
   <div class="pf-container pf-about">
 
     <!-- ===== ESQUERDA: foto + badge + pills (sticky) ===== -->
-    <div class="pf-about-left">
+    <div class="pf-about-left" pfReveal [pfRevealDelay]="80">
 
       <div class="pf-avatar">
         <img [src]="profilePhoto" alt="Miguel Pereira" class="pf-avatar-photo" />
@@ -19,7 +19,7 @@
     </div>
 
     <!-- ===== DIREITA: título + parágrafos + code block ===== -->
-    <div class="pf-about-right">
+    <div class="pf-about-right" pfReveal [pfRevealDelay]="220">
 
       <!-- Section header -->
       <div class="pf-sechead">

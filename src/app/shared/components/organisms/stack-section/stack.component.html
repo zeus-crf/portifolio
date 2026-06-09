@@ -2,7 +2,7 @@
   <div class="pf-container" style="position:relative;z-index:1;">
 
     <!-- Cabeçalho + Filtros -->
-    <div class="pf-sec-toprow">
+    <div class="pf-sec-toprow" pfReveal [pfRevealDelay]="0">
       <div class="pf-sechead">
         <span class="pf-eyebrow">// FERRAMENTAS</span>
         <h2 class="pf-h2">Stack &amp; Ferramentas</h2>
@@ -21,7 +21,7 @@
     <!-- Grid de grupos de categorias (2 col) -->
     <div class="pf-tool-groups">
 
-      <div *ngFor="let group of filteredGroups" class="pf-tool-group">
+      <div *ngFor="let group of filteredGroups; let i = index" class="pf-tool-group" pfReveal [pfRevealDelay]="80 + i * 90">
 
         <!-- Header da categoria -->
         <div class="pf-tool-cat-header">

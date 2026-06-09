@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PfRevealDirective } from '../../../directives/pf-reveal.directive';
 
 interface XpEntry {
   period: string;
@@ -12,7 +13,7 @@ interface XpEntry {
 @Component({
   selector: 'app-experience',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, PfRevealDirective],
   templateUrl: './experience.component.html',
   styleUrl: './experience.component.scss',
 })

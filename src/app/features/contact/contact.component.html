@@ -2,7 +2,7 @@
   <div class="pf-container" style="position:relative;z-index:1;">
 
     <!-- Cabeçalho centralizado -->
-    <div class="pf-sechead" style="align-items:center;margin:0 auto 40px;text-align:center;">
+    <div class="pf-sechead" style="align-items:center;margin:0 auto 40px;text-align:center;" pfReveal [pfRevealDelay]="0">
       <span class="pf-eyebrow">// CONTATO</span>
       <h2 class="pf-h2">Vamos conversar</h2>
     </div>
@@ -11,7 +11,7 @@
     <div class="pf-contact">
 
       <!-- Formulário -->
-      <form class="pf-form" (submit)="onSubmit($event)">
+      <form class="pf-form" (submit)="onSubmit($event)" pfReveal [pfRevealDelay]="150">
 
         <!-- Linha: Nome + E-mail -->
         <div class="pf-form-row">
@@ -52,7 +52,7 @@
       </form>
 
       <!-- Lateral: links de contato + banner -->
-      <div class="pf-contact-side">
+      <div class="pf-contact-side" pfReveal [pfRevealDelay]="300">
 
         <!-- GitHub -->
         <a class="pf-link-card" href="https://github.com/zeus-crf" target="_blank">

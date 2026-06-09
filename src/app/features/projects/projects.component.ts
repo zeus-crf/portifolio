@@ -1,5 +1,6 @@
 import { Component, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PfRevealDirective } from '../../shared/directives/pf-reveal.directive';
 
 interface Project {
   id: string;
@@ -17,7 +18,7 @@ interface Project {
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, PfRevealDirective],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss',
 })

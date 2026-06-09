@@ -2,7 +2,7 @@
   <div class="pf-container" style="position:relative;z-index:1;">
 
     <!-- Cabeçalho -->
-    <div class="pf-sechead">
+    <div class="pf-sechead" pfReveal [pfRevealDelay]="0">
       <span class="pf-eyebrow">// EXPERIÊNCIA</span>
       <h2 class="pf-h2">Trajetória</h2>
     </div>
@@ -13,7 +13,7 @@
       <!-- Linha vertical central -->
       <div class="pf-xp-vline"></div>
 
-      <div *ngFor="let e of entries; let i = index" class="pf-xp-entry">
+      <div *ngFor="let e of entries; let i = index" class="pf-xp-entry" pfReveal [pfRevealDelay]="120 + i * 120">
 
         <!-- Coluna esquerda: apenas índices pares (desktop) -->
         <div class="pf-xp-left-col">

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PfRevealDirective } from '../../../directives/pf-reveal.directive';
 
 interface ToolItem  { slug: string; label: string; variant?: string; }
 interface ToolGroup { cat: string; icon: string; items: ToolItem[]; }
@@ -7,7 +8,7 @@ interface ToolGroup { cat: string; icon: string; items: ToolItem[]; }
 @Component({
   selector: 'app-stack',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, PfRevealDirective],
   templateUrl: './stack.component.html',
   styleUrl: './stack.component.scss',
 })

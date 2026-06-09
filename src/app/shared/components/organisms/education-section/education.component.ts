@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PfRevealDirective } from '../../../directives/pf-reveal.directive';
 
 interface Degree {
   title: string;
@@ -19,7 +20,7 @@ interface Cert {
 @Component({
   selector: 'app-education',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, PfRevealDirective],
   templateUrl: './education.component.html',
   styleUrl: './education.component.scss',
 })

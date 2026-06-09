@@ -2,7 +2,7 @@
   <div class="pf-container" style="position:relative;z-index:1;">
 
     <!-- Cabeçalho -->
-    <div class="pf-sechead">
+    <div class="pf-sechead" pfReveal [pfRevealDelay]="0">
       <span class="pf-eyebrow">// FORMAÇÃO</span>
       <h2 class="pf-h2">Formação &amp; Certificações</h2>
     </div>
@@ -10,7 +10,7 @@
     <!-- Cards de grau — 2 colunas -->
     <div class="pf-edu-degrees">
 
-      <div *ngFor="let d of degrees" class="pf-degree">
+      <div *ngFor="let d of degrees; let i = index" class="pf-degree" pfReveal [pfRevealDelay]="100 + i * 120">
         <!-- Barra lateral azul -->
         <div class="pf-degree-bar"></div>
         <div class="pf-degree-body">
@@ -38,14 +38,14 @@
     </div>
 
     <!-- Label de certificações -->
-    <div class="pf-cert-label">
+    <div class="pf-cert-label" pfReveal [pfRevealDelay]="0">
       <span class="pf-eyebrow">Certificações</span>
     </div>
 
     <!-- Grid de certificados -->
     <div class="pf-cert-grid">
 
-      <div *ngFor="let c of certs" class="pf-cert" [class.pf-cert-wip]="c.status === 'Em andamento'">
+      <div *ngFor="let c of certs; let i = index" class="pf-cert" pfReveal [pfRevealDelay]="i * 55">
 
         <!-- Ícone chapéu de formatura -->
         <div class="pf-cert-ic-wrap">
@@ -60,12 +60,6 @@
         <!-- Nome e meta -->
         <span class="pf-cert-name">{{ c.name }}</span>
         <span class="pf-cert-meta">{{ c.inst }} · {{ c.date }}</span>
-
-        <!-- Barra de progresso para Em andamento -->
-        <div *ngIf="c.status === 'Em andamento' && c.progress" class="pf-cert-progress">
-          <div class="pf-cert-progress-bar" [style.width.%]="c.progress"></div>
-          <span class="pf-cert-progress-label">{{ c.progress }}%</span>
-        </div>
 
       </div>
 

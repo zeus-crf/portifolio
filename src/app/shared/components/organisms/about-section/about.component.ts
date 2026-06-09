@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PfRevealDirective } from '../../../directives/pf-reveal.directive';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, PfRevealDirective],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',
 })

@@ -2,7 +2,7 @@
   <div class="pf-container" style="position:relative;z-index:1;">
 
     <!-- Cabeçalho + Filtros -->
-    <div class="pf-sec-toprow">
+    <div class="pf-sec-toprow" pfReveal [pfRevealDelay]="0">
       <div class="pf-sechead">
         <span class="pf-eyebrow">// PROJETOS</span>
         <h2 class="pf-h2">Projetos em Destaque</h2>
@@ -23,7 +23,7 @@
 
       <!-- Card em destaque -->
       <div class="pf-proj-feat-col">
-        <div *ngIf="featured; else emptyFeatured" class="pf-feat-card">
+        <div *ngIf="featured; else emptyFeatured" class="pf-feat-card" pfReveal [pfRevealDelay]="150">
 
           <!-- Chrome do browser -->
           <div class="pf-chrome">
@@ -77,7 +77,7 @@
       <!-- Lista de mini cards -->
       <div class="pf-proj-list">
         <ng-container *ngIf="rest.length > 0; else emptyRest">
-          <div *ngFor="let p of rest" class="pf-proj-card">
+          <div *ngFor="let p of rest; let i = index" class="pf-proj-card" pfReveal [pfRevealDelay]="200 + i * 90">
             <div class="pf-proj-top">
               <span class="pf-proj-num">#{{ p.id }}</span>
               <div class="pf-proj-links">
