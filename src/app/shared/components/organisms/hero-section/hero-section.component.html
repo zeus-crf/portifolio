@@ -31,7 +31,7 @@
 
       <!-- CTA buttons -->
       <div class="pf-hero-cta">
-        <button class="pf-btn pf-btn-primary" (click)="onViewProjects()">
+        <button class="pf-btn pf-btn-primary" (click)="scrollTo('projetos')">
           Ver Projetos <span>→</span>
         </button>
         <button class="pf-btn pf-btn-ghost" (click)="onDownloadCV()">
@@ -62,7 +62,7 @@
       </div>
 
       <!-- Stats -->
-      <div class="pf-hero-stats">
+      <!-- <div class="pf-hero-stats">
         <ng-container *ngFor="let stat of stats; let i = index">
           <span *ngIf="i > 0" class="pf-stat-div"></span>
           <div class="pf-stat">
@@ -70,7 +70,7 @@
             <span class="pf-stat-l">{{ stat.label }}</span>
           </div>
         </ng-container>
-      </div>
+      </div> -->
 
     </div>
 

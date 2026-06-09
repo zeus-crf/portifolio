@@ -1,0 +1,75 @@
+<section id="formacao" class="pf-section">
+  <div class="pf-container" style="position:relative;z-index:1;">
+
+    <!-- Cabeçalho -->
+    <div class="pf-sechead">
+      <span class="pf-eyebrow">// FORMAÇÃO</span>
+      <h2 class="pf-h2">Formação &amp; Certificações</h2>
+    </div>
+
+    <!-- Cards de grau — 2 colunas -->
+    <div class="pf-edu-degrees">
+
+      <div *ngFor="let d of degrees" class="pf-degree">
+        <!-- Barra lateral azul -->
+        <div class="pf-degree-bar"></div>
+        <div class="pf-degree-body">
+          <!-- Ícone + status -->
+          <div class="pf-degree-top">
+            <div class="pf-degree-ic-wrap">
+              <!-- Cap / diploma icon -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+              </svg>
+            </div>
+            <span class="pf-status" [class.done]="d.status === 'Concluído'" [class.wip]="d.status === 'Em andamento'">
+              {{ d.status }}
+            </span>
+          </div>
+          <h3 class="pf-degree-title">{{ d.title }}</h3>
+          <span class="pf-degree-inst">{{ d.inst }}</span>
+          <span class="pf-degree-period">{{ d.period }}</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Label de certificações -->
+    <div class="pf-cert-label">
+      <span class="pf-eyebrow">Certificações</span>
+    </div>
+
+    <!-- Grid de certificados -->
+    <div class="pf-cert-grid">
+
+      <div *ngFor="let c of certs" class="pf-cert" [class.pf-cert-wip]="c.status === 'Em andamento'">
+
+        <!-- Ícone chapéu de formatura -->
+        <div class="pf-cert-ic-wrap">
+          <svg width="16" height="16" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+        </div>
+
+        <!-- Nome e meta -->
+        <span class="pf-cert-name">{{ c.name }}</span>
+        <span class="pf-cert-meta">{{ c.inst }} · {{ c.date }}</span>
+
+        <!-- Barra de progresso para Em andamento -->
+        <div *ngIf="c.status === 'Em andamento' && c.progress" class="pf-cert-progress">
+          <div class="pf-cert-progress-bar" [style.width.%]="c.progress"></div>
+          <span class="pf-cert-progress-label">{{ c.progress }}%</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>

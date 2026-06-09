@@ -11,6 +11,7 @@ interface Project {
   featured?: boolean;
   demoUrl?: string;
   repoUrl?: string;
+  imagem?: string;
 }
 
 @Component({
@@ -28,13 +29,13 @@ export class ProjectsComponent {
     {
       id: '01',
       cat: 'Full-Stack',
-      title: 'Clínica de Estética 2.0',
-      url: 'clinica.app',
+      title: 'Clínica de Estética - Renata Lopes',
+      url: 'https://www.clinicarenatalopes.com',
       desc: 'Plataforma completa de agendamento e gestão com API Spring Boot e frontend Angular.',
-      stack: ['Java', 'Spring Boot', 'Angular', 'PostgreSQL'],
+      stack: ['Java', 'Spring Boot', 'Angular', 'MySQL'],
       featured: true,
-      demoUrl: '#',
       repoUrl: 'https://github.com/zeus-crf',
+      demoUrl: 'https://www.clinicarenatalopes.com',
     },
     {
       id: '02',
@@ -42,26 +43,29 @@ export class ProjectsComponent {
       title: 'Config Server',
       url: 'config.dev',
       desc: 'Servidor de configuração centralizado para microsserviços.',
-      stack: ['Java', 'Spring Cloud'],
-      repoUrl: 'https://github.com/zeus-crf',
+      stack: ['Java', 'Spring Boot', 'Spring Cloud'],
+      repoUrl: 'https://github.com/zeus-crf/config-server',
+      demoUrl: 'https://github.com/zeus-crf/config-server'
     },
     {
       id: '03',
-      cat: 'Frontend',
-      title: 'Dashboard Analytics',
-      url: 'dash.app',
-      desc: 'Painel interativo de métricas em tempo real.',
-      stack: ['Angular', 'RxJS', 'TypeScript'],
-      repoUrl: 'https://github.com/zeus-crf',
+      cat: 'Backend',
+      title: 'Service registry',
+      url: 'service-registry.app',
+      desc: 'Sistema de registro de microsserviços',
+      stack: ['Java', 'Spring Boot', 'Spring Cloud'],
+      repoUrl: 'https://github.com/zeus-crf/service-registry-ms',
+      demoUrl: 'https://github.com/zeus-crf/service-registry-ms'
     },
     {
       id: '04',
-      cat: 'Full-Stack',
-      title: 'API de Pagamentos',
+      cat: 'Backend',
+      title: 'Shopflow',
       url: 'pay.dev',
-      desc: 'Gateway de pagamentos com fila assíncrona.',
+      desc: 'Api de microsserviços para e-commercie',
       stack: ['Java', 'RabbitMQ', 'Redis'],
       repoUrl: 'https://github.com/zeus-crf',
+      demoUrl: 'https://github.com/zeus-crf/shopflow'
     },
   ];
 

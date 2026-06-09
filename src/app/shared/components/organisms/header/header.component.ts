@@ -19,6 +19,7 @@ import { Router, RouterModule } from '@angular/router';
           <a (click)="scrollTo('projetos')" style="cursor:pointer">Projetos</a>
           <a (click)="scrollTo('ferramentas')" style="cursor:pointer">Ferramentas</a>
           <a (click)="scrollTo('experiencia')" style="cursor:pointer">Experiência</a>
+          <a (click)="scrollTo('formacao')" style="cursor:pointer">Formação</a>
           <a (click)="scrollTo('contato')" style="cursor:pointer">Contato</a>
         </div>
 
