@@ -759,6 +759,24 @@ body::before {
   justify-content: center;
   overflow: hidden;
 }
+/* When a real screenshot is shown, expand & style it */
+.pf-feat-preview--img {
+  height: 300px;
+  background: var(--card);
+  align-items: flex-start;
+}
+.pf-feat-screenshot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  border-radius: 0;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+// .pf-feat-preview--img:hover .pf-feat-screenshot {
+//   transform: translateY(-6%);
+// }
 .pf-feat-glow {
   position: absolute;
   inset: 0;

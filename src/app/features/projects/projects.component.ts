@@ -37,6 +37,7 @@ export class ProjectsComponent {
       featured: true,
       repoUrl: 'https://github.com/zeus-crf',
       demoUrl: 'https://www.clinicarenatalopes.com',
+      imagem: '/assets/clinica_site.png',
     },
     {
       id: '02',

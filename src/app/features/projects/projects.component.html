@@ -34,9 +34,14 @@
           </div>
 
           <!-- Preview area -->
-          <div class="pf-feat-preview">
-            <div class="pf-feat-glow"></div>
-            <span class="pf-feat-mark">&lt;/&gt;</span>
+          <div class="pf-feat-preview" [class.pf-feat-preview--img]="featured?.imagem">
+            <ng-container *ngIf="featured?.imagem; else noImg">
+              <img [src]="featured!.imagem" [alt]="featured!.title" class="pf-feat-screenshot" />
+            </ng-container>
+            <ng-template #noImg>
+              <div class="pf-feat-glow"></div>
+              <span class="pf-feat-mark">&lt;/&gt;</span>
+            </ng-template>
           </div>
 
           <!-- Corpo do card -->
