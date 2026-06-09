@@ -39,10 +39,10 @@
         </label>
 
         <!-- Botão -->
-        <button type="submit" class="pf-btn pf-btn-primary" style="align-self:flex-start;margin-top:4px;">
-          <span *ngIf="!sent">Enviar Mensagem</span>
-          <span *ngIf="sent">Mensagem enviada ✓</span>
-          <svg *ngIf="!sent" width="16" height="16" viewBox="0 0 24 24" fill="none"
+        <button type="submit" class="pf-btn pf-btn-primary" style="align-self:flex-start;margin-top:4px;" [disabled]="loading()">
+          <span *ngIf="!loading()">Enviar Mensagem</span>
+          <span *ngIf="loading()" class="pf-btn-spinner"></span>
+          <svg *ngIf="!loading()" width="16" height="16" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
@@ -130,6 +130,20 @@
 
       </div>
     </div>
+  </div>
+
+  <!-- Toast de feedback -->
+  <div class="pf-toast" [class.pf-toast--visible]="showToast()" [class.pf-toast--error]="!toastSuccess()">
+    <svg *ngIf="toastSuccess()" width="18" height="18" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <svg *ngIf="!toastSuccess()" width="18" height="18" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+    <span>{{ toastSuccess() ? 'Mensagem enviada com sucesso!' : 'Erro ao enviar. Tente novamente.' }}</span>
   </div>
 
   <!-- Footer dentro da seção de contato -->
