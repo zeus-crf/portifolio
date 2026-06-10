@@ -38,7 +38,7 @@ export class StackComponent {
         { slug: 'javascript',  label: 'JavaScript' },
         { slug: 'html5',       label: 'HTML5'      },
         { slug: 'css3',        label: 'CSS3',  variant: 'plain' },
-        { slug: 'tailwindcss', label: 'Tailwind', variant: 'plain' },
+        { slug: 'tailwindcss', label: 'Tailwind', variant: 'original' },
       ],
     },
     {
