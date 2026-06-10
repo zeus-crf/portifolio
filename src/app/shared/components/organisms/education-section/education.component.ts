@@ -29,14 +29,14 @@ export class EducationComponent {
   degrees: Degree[] = [
     {
       title: 'Técnico em Informática',
-      inst: 'ETEC — Escola Técnica Estadual',
-      period: '2022 — 2023',
+      inst: 'CIOB — Centro de Integração e Objetivo',
+      period: '2022 — 2024',
       status: 'Concluído',
     },
     {
       title: 'Engenharia de Software',
-      inst: 'Universidade Paulista (UNIP)',
-      period: '2024 — Presente',
+      inst: 'Centro Universitário Internacional (UNINTER)',
+      period: '2025 — Presente',
       status: 'Em andamento',
     },
   ];
